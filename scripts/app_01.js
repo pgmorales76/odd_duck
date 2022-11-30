@@ -14,7 +14,7 @@ let index_03 = 0;
 let clicks = 0;
 
 // constructor function
-function Product(name, src){
+function Product(name, src) {
   this.name = name;
   this.src = src;
   this.clicks = 0;
@@ -42,4 +42,63 @@ let product_17 = new Product('unicorn', './images/unicorn.jpg');
 let product_18 = new Product('water_can', './images/water-can.jpg');
 let product_19 = new Product('wine_glass', './images/wine-glass.jpg');
 
+// products array
+let products = [product_01, product_02, product_03, product_04, product_05,
+  product_06, product_07, product_08, product_09, product_10, product_11,
+  product_12, product_13, product_14, product_15, product_16, product_17,
+  product_18, product_19];
 
+// get random index for products array
+function get_random_index() {
+  return Math.floor(Math.random() * products.length); // Math.random() * products.length returns a number between 0 - 2.9999.
+//   Math.floor() will then equal 0, 1, 2
+}
+
+// render products function
+function render_products() {
+  index_01 = get_random_index();
+  index_02 = get_random_index();
+  index_03 = get_random_index();
+
+  // we only move on, once all products are DIFFERENT
+  while (index_01 === index_02 === index_03) {
+    index_02 = get_random_index();
+    index_03 = get_random_index();
+  }
+
+  let first_product = products[index_01];
+  let second_product = products[index_02];
+  let third_product = products[index_03];
+
+  // dom manipulation, we're basically making our own img element with these attributes
+  // we display our 3 random (and unique products)
+  image_01.src = first_product.src;
+  image_01.alt = first_product.name;
+  image_01.title = first_product.name;
+
+  image_02.src = second_product.src;
+  image_02.alt = second_product.name;
+  image_02.title = second_product.name;
+
+  image_03.src = third_product.src;
+  image_03.alt = third_product.name;
+  image_03.title = third_product.name;
+
+  // increment views
+  first_product.views++;
+  second_product.views++;
+  third_product.views++;
+}
+
+// event handler
+// What happens when a user clicks a product?
+// increment product's .clicks
+// render 3 new products
+function handle_product_click(event) {
+  clicks++;
+
+  console.log(event.target);
+
+  
+
+}
