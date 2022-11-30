@@ -105,7 +105,7 @@ function handle_product_click(event) {
     }
   }
 
-  if (clicks > 25) {
+  if (clicks > 24) {
     // remove the event listeners
     image_01.removeEventListener('click', handle_product_click);
     image_02.removeEventListener('click', handle_product_click);
