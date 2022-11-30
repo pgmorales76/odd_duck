@@ -61,11 +61,8 @@ function render_products() {
   index_03 = get_random_index();
 
   // we only move on, once all products are DIFFERENT
-  while (index_01 === index_02) {
+  while (index_01 === index_02 || index_02 === index_03 || index_01 === index_03) {
     index_02 = get_random_index();
-  }
-
-  while (index_02 === index_03) {
     index_03 = get_random_index();
   }
 
