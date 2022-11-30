@@ -69,6 +69,10 @@ function render_products() {
     index_03 = get_random_index();
   }
 
+  while (index_01 === index_03) {
+    index_03 = get_random_index();
+  }
+
   let first_product = products[index_01];
   let second_product = products[index_02];
   let third_product = products[index_03];
