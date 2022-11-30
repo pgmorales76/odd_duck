@@ -115,3 +115,26 @@ function handle_product_click(event) {
   console.log(products);
   render_products();
 }
+
+function results(event) {
+
+  console.log(event.target);
+
+  let ul = document.querySelector('ul');
+
+  // one li for each product
+  for (let i = 0; i < products.length; i++) {
+    let li = document.createElement('li');
+    li.innerText = `${products[i].name} was viewed ${products[i].views} times, and was clicked ${products[i].clicks} times.`;
+    ul.appendChild(li);
+  }
+
+  results_button.removeEventListener('click', results);
+}
+
+// when page loads
+image_01.addEventListener('click', handle_product_click);
+image_02.addEventListener('click', handle_product_click);
+image_03.addEventListener('click', handle_product_click);
+results_button.addEventListener('click', results);
+render_products();
