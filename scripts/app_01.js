@@ -99,6 +99,19 @@ function handle_product_click(event) {
 
   console.log(event.target);
 
-  
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].name === event.target.alt) {
+      products[i].clicks++;
+    }
+  }
 
+  if (clicks > 25) {
+    // remove the event listeners
+    image_01.removeEventListener('click', handle_product_click);
+    image_02.removeEventListener('click', handle_product_click);
+    image_03.removeEventListener('click', handle_product_click);
+  }
+
+  console.log(products);
+  render_products();
 }
